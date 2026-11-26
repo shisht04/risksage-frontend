@@ -4,6 +4,13 @@ RiskSage is a modern cybersecurity frontend for detecting and investigating auth
 
 ---
 
+## Live Demo
+
+- **Landing Page**: [https://risksage-frontend.vercel.app](https://risksage-frontend.vercel.app)
+- **Security Dashboard**: [https://risksage-frontend.vercel.app/dashboard](https://risksage-frontend.vercel.app/dashboard)
+
+---
+
 ## Key Features
 
 - **Multi-Model Anomaly Detection**: Integrates an ensemble of Isolation Forest, Autoencoder, and LSTM models evaluated against the Carnegie Mellon University (CMU) CERT Insider Threat Dataset (r5.2 & r6.2).
@@ -44,8 +51,6 @@ npm install
 # Start development server
 npm run dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) for the landing page or [http://localhost:3000/dashboard](http://localhost:3000/dashboard) for the security analyst console.
 
 ### Production Build
 
