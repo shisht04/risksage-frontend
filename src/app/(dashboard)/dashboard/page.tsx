@@ -271,7 +271,7 @@ export default function SecurityDashboardPage() {
       <div className="mx-auto max-w-[1360px] space-y-6 px-4 py-6 sm:px-6 lg:px-8">
         {/* Top KPI Cards */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-xl border border-white/10 bg-[#162a17] p-5">
+          <div className="rs-glow-card rounded-xl border border-white/10 bg-[#162a17] p-5">
             <div className="flex items-center justify-between text-xs text-[#9aa39a]">
               <span>Total Monitored Users</span>
               <Users className="h-4 w-4 text-[#c6f19d]" />
@@ -284,7 +284,7 @@ export default function SecurityDashboardPage() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-white/10 bg-[#162a17] p-5">
+          <div className="rs-glow-card rounded-xl border border-white/10 bg-[#162a17] p-5">
             <div className="flex items-center justify-between text-xs text-[#9aa39a]">
               <span>Detected Threats (24h)</span>
               <Warning className="h-4 w-4 text-[#ffb2af]" />
@@ -301,7 +301,7 @@ export default function SecurityDashboardPage() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-white/10 bg-[#162a17] p-5">
+          <div className="rs-glow-card rounded-xl border border-white/10 bg-[#162a17] p-5">
             <div className="flex items-center justify-between text-xs text-[#9aa39a]">
               <span>High-Risk &amp; Critical Users</span>
               <Shield className="h-4 w-4 text-[#f6cd7a]" />
@@ -312,7 +312,7 @@ export default function SecurityDashboardPage() {
             <p className="mt-1 text-xs text-[#9aa39a]">Score 60+ requiring analyst review</p>
           </div>
 
-          <div className="rounded-xl border border-white/10 bg-[#162a17] p-5">
+          <div className="rs-glow-card rounded-xl border border-white/10 bg-[#162a17] p-5">
             <div className="flex items-center justify-between text-xs text-[#9aa39a]">
               <span>Ensemble AUC (measured)</span>
               <Brain className="h-4 w-4 text-[#c6f19d]" />
@@ -337,7 +337,7 @@ export default function SecurityDashboardPage() {
           <div className="space-y-6">
             {/* Charts Row */}
             <div className="grid grid-cols-1 gap-6 xl:grid-cols-12">
-              <div className="rounded-xl border border-white/10 bg-[#162a17] p-5 sm:p-6 xl:col-span-8">
+              <div className="rs-glow-card rounded-xl border border-white/10 bg-[#162a17] p-5 sm:p-6 xl:col-span-8">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div>
                     <h2 className="text-base font-medium text-white">
@@ -394,7 +394,7 @@ export default function SecurityDashboardPage() {
                 </div>
               </div>
 
-              <div className="rounded-xl border border-white/10 bg-[#162a17] p-5 sm:p-6 xl:col-span-4">
+              <div className="rs-glow-card rounded-xl border border-white/10 bg-[#162a17] p-5 sm:p-6 xl:col-span-4">
                 <div>
                   <h2 className="text-base font-medium text-white">Overall Risk Distribution</h2>
                   <p className="text-xs text-[#9aa39a]">
@@ -446,7 +446,7 @@ export default function SecurityDashboardPage() {
             </div>
 
             {/* Suspicious User Activity Table */}
-            <div className="rounded-xl border border-white/10 bg-[#162a17] p-5 sm:p-6">
+            <div className="rs-glow-card rounded-xl border border-white/10 bg-[#162a17] p-5 sm:p-6">
               <div className="flex flex-col gap-4 border-b border-white/10 pb-4 lg:flex-row lg:items-center lg:justify-between">
                 <div>
                   <h2 className="text-base font-medium text-white">
@@ -522,7 +522,7 @@ export default function SecurityDashboardPage() {
                       <tr
                         key={u.id}
                         onClick={() => inspectUser(u.id)}
-                        className="cursor-pointer transition hover:bg-white/[0.03]"
+                        className="cursor-pointer transition hover:bg-[#c6f19d]/[0.07] hover:shadow-[inset_3px_0_0_0_#c6f19d]"
                       >
                         <td className="py-3.5 pr-3">
                           <div className="flex items-center gap-3">

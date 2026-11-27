@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "RiskSage: explainable insider threat detection for security teams",
@@ -40,6 +41,7 @@ export default function RootLayout({
           precedence="default"
         />
         {children}
+        <CustomCursor />
       </body>
     </html>
   );

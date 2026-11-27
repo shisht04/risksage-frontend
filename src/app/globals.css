@@ -18,3 +18,133 @@
 .font-mono-code {
   font-family: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
 }
+
+/* ------------------------------------------------------------------ */
+/* Custom cursor: accent dot + trailing ring (see CustomCursor.tsx).   */
+/* Hidden by default; only shown on precise pointers. The native       */
+/* cursor is hidden in the same case, except over text fields, where   */
+/* the I-beam stays so typing still feels normal.                      */
+/* ------------------------------------------------------------------ */
+
+.rs-cursor-dot,
+.rs-cursor-ring {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.rs-cursor-dot-inner {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 9999px;
+  background: var(--rs-accent);
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.rs-cursor-ring-inner {
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(198, 241, 157, 0.75);
+  transition: transform 0.22s ease, background-color 0.22s ease,
+    border-color 0.22s ease, opacity 0.18s ease;
+}
+
+.rs-cursor-ring.is-hover .rs-cursor-ring-inner {
+  transform: scale(1.6);
+  background: rgba(198, 241, 157, 0.1);
+  border-color: rgba(198, 241, 157, 0.95);
+}
+
+.rs-cursor-dot.is-hover .rs-cursor-dot-inner {
+  transform: scale(0.5);
+}
+
+.rs-cursor-dot.is-hidden,
+.rs-cursor-ring.is-hidden {
+  opacity: 0;
+}
+
+@media (pointer: fine) {
+  .rs-cursor-dot,
+  .rs-cursor-ring {
+    display: block;
+  }
+
+  body,
+  a,
+  button,
+  [role="button"],
+  input,
+  select,
+  summary,
+  label,
+  [data-cursor="pointer"],
+  .cursor-pointer {
+    cursor: none;
+  }
+
+  input[type="text"],
+  input[type="search"],
+  input[type="email"],
+  input[type="url"],
+  input[type="number"],
+  input[type="password"],
+  textarea {
+    cursor: text;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Hover glow for dashboard cards: a small lift, an accent border and  */
+/* a soft green glow. Only on devices that actually hover.             */
+/* ------------------------------------------------------------------ */
+
+.rs-glow-card {
+  transition: transform 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rs-glow-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(198, 241, 157, 0.45);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35),
+      0 0 0 1px rgba(198, 241, 157, 0.12),
+      0 0 28px rgba(198, 241, 157, 0.07);
+  }
+}
+
+/* Reduced motion: no custom cursor, no lift, native cursor back. */
+@media (prefers-reduced-motion: reduce) {
+  .rs-cursor-dot,
+  .rs-cursor-ring {
+    display: none;
+  }
+
+  body,
+  a,
+  button,
+  [role="button"],
+  input,
+  select,
+  summary,
+  label,
+  [data-cursor="pointer"],
+  .cursor-pointer {
+    cursor: auto;
+  }
+
+  .rs-glow-card {
+    transition: none;
+  }
+
+  .rs-glow-card:hover {
+    transform: none;
+  }
+}
