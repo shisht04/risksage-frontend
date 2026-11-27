@@ -1,5 +1,7 @@
 "use client";
 
+import ChartTooltip from "./ChartTooltip";
+
 import {
   Area,
   AreaChart,
@@ -198,13 +200,7 @@ export function ShapInspector({ user, onStatusChange }: ShapInspectorProps) {
                 <ReferenceLine x={0} stroke="rgba(255,255,255,0.25)" />
                 <Tooltip
                   cursor={{ fill: "rgba(255,255,255,0.04)" }}
-                  contentStyle={{
-                    backgroundColor: "#0f1f10",
-                    borderColor: "rgba(255,255,255,0.15)",
-                    borderRadius: "8px",
-                    fontSize: "12px",
-                    color: "#ffffff",
-                  }}
+                  content={<ChartTooltip />}
                   formatter={(value: number) => [
                     value > 0 ? `+${value.toFixed(2)} risk` : `${value.toFixed(2)} risk`,
                     "SHAP impact",
@@ -287,13 +283,7 @@ export function ShapInspector({ user, onStatusChange }: ShapInspectorProps) {
                   tickLine={false}
                 />
                 <Tooltip
-                  contentStyle={{
-                    backgroundColor: "#0f1f10",
-                    borderColor: "rgba(255,255,255,0.15)",
-                    borderRadius: "8px",
-                    fontSize: "12px",
-                    color: "#ffffff",
-                  }}
+                  content={<ChartTooltip />}
                 />
                 <Bar dataKey="baseline" name="90d Baseline" fill="#325035" radius={[4, 4, 0, 0]} />
                 <Bar dataKey="observed" name="Observed 24h" fill="#c6f19d" radius={[4, 4, 0, 0]} />
@@ -343,13 +333,7 @@ export function ShapInspector({ user, onStatusChange }: ShapInspectorProps) {
                   tickLine={false}
                 />
                 <Tooltip
-                  contentStyle={{
-                    backgroundColor: "#0f1f10",
-                    borderColor: "rgba(255,255,255,0.15)",
-                    borderRadius: "8px",
-                    fontSize: "12px",
-                    color: "#ffffff",
-                  }}
+                  content={<ChartTooltip />}
                 />
                 <Area
                   type="monotone"

@@ -1,5 +1,7 @@
 "use client";
 
+import ChartTooltip from "./ChartTooltip";
+
 import { useEffect, useState } from "react";
 import {
   Bar,
@@ -144,13 +146,7 @@ export function CertBenchmarkPanel() {
                   tickLine={false}
                 />
                 <Tooltip
-                  contentStyle={{
-                    backgroundColor: "#0f1f10",
-                    borderColor: "rgba(255,255,255,0.15)",
-                    borderRadius: "8px",
-                    fontSize: "12px",
-                    color: "#ffffff",
-                  }}
+                  content={<ChartTooltip />}
                 />
                 <Legend wrapperStyle={{ fontSize: "12px" }} />
                 {Object.entries(MODEL_STYLE).map(([key, s]) => (
@@ -197,13 +193,7 @@ export function CertBenchmarkPanel() {
                   tickLine={false}
                 />
                 <Tooltip
-                  contentStyle={{
-                    backgroundColor: "#0f1f10",
-                    borderColor: "rgba(255,255,255,0.15)",
-                    borderRadius: "8px",
-                    fontSize: "12px",
-                    color: "#ffffff",
-                  }}
+                  content={<ChartTooltip />}
                 />
                 <Legend wrapperStyle={{ fontSize: "12px" }} />
                 <Bar dataKey="aucPct" name="AUC (%)" fill="#c6f19d" radius={[4, 4, 0, 0]} />

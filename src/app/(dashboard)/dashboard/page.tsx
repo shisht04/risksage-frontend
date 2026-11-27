@@ -1,5 +1,7 @@
 "use client";
 
+import ChartTooltip from "@/components/dashboard/ChartTooltip";
+
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
@@ -370,13 +372,7 @@ export default function SecurityDashboardPage() {
                         tickLine={false}
                       />
                       <Tooltip
-                        contentStyle={{
-                          backgroundColor: "#0f1f10",
-                          borderColor: "rgba(255,255,255,0.15)",
-                          borderRadius: "8px",
-                          fontSize: "12px",
-                          color: "#ffffff",
-                        }}
+                        content={<ChartTooltip />}
                       />
                       <Legend wrapperStyle={{ fontSize: "12px" }} />
                       <Bar dataKey="loginFlags" stackId="a" name="Login" fill="#c6f19d" />
@@ -417,13 +413,7 @@ export default function SecurityDashboardPage() {
                         ))}
                       </Pie>
                       <Tooltip
-                        contentStyle={{
-                          backgroundColor: "#0f1f10",
-                          borderColor: "rgba(255,255,255,0.15)",
-                          borderRadius: "8px",
-                          fontSize: "12px",
-                          color: "#ffffff",
-                        }}
+                        content={<ChartTooltip />}
                       />
                     </PieChart>
                   </ResponsiveContainer>
