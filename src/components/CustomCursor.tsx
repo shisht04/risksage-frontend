@@ -8,15 +8,15 @@ const INTERACTIVE_SELECTOR =
 
 /**
  * Custom cursor: a small accent dot that follows the mouse exactly, plus a
- * ring that trails behind it and grows over clickable things. Only renders
- * on precise pointers (mouse/trackpad) and stays off entirely when the user
- * prefers reduced motion. All browser APIs are touched inside useEffect, so
+ * ring that trails behind it and grows over clickable things. The dots
+ * always render and the stylesheet hides them on touch devices and for
+ * reduced motion, so there is no state gate that can leave the mouse
+ * listeners unattached. All browser APIs are touched inside useEffect, so
  * the static export prerenders cleanly.
  */
 export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
-  const [enabled, setEnabled] = useState(false);
   const [hovering, setHovering] = useState(false);
   const [visible, setVisible] = useState(false);
 
@@ -27,7 +27,6 @@ export default function CustomCursor() {
     ) {
       return;
     }
-    setEnabled(true);
 
     const dot = dotRef.current;
     const ring = ringRef.current;
@@ -79,8 +78,6 @@ export default function CustomCursor() {
       document.documentElement.removeEventListener("mouseenter", onEnter);
     };
   }, []);
-
-  if (!enabled) return null;
 
   return (
     <>
